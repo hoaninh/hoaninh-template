@@ -1,0 +1,13 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/SVN-Gilroy.otf",
+      "sha1": "ed7c84d6f0b3bd4764934704c927122f703f2eef"
+    },
+    {
+      "path": "src/assets/fonts/SVN-GilroySemiBold.otf",
+      "sha1": "ac6180999c6054cf53128046cf29bb53c8266102"
+    }
+  ]
+}
