@@ -1,19 +1,25 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { makeStyles } from '@rneui/themed';
+import { Text, View } from 'react-native';
 
 export interface SearchScreenProps {}
 
 export const SearchScreen = ({}: SearchScreenProps) => {
+  const styles = useStyles();
   return (
     <View style={styles.container}>
-      <Text>Search</Text>
+      <Text style={styles.text}>Search</Text>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles(theme => ({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: theme.colors.background,
   },
-});
+  text: {
+    color: theme.colors.text,
+  }
+}));

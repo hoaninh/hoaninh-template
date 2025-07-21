@@ -1,18 +1,17 @@
 import { useLogin } from '@api';
-import { FacebookIcon } from '@assets/icons';
-import { Images } from '@assets/images';
 import { useLocalization } from '@localization';
 import { RootNavigationProp } from '@navigation/RootStackParamList';
 import { ROUTE_NAMES } from '@navigation/RouteNames';
 import { useNavigation } from '@react-navigation/native';
-import { Typography } from '@theme/Typography';
-import { Button, Image, StyleSheet, Text, View } from 'react-native';
+import { makeStyles } from '@rneui/themed';
+import { Button, Text, View } from 'react-native';
 import { useToast } from 'react-native-toast-notifications';
 
 export const HomeScreen = () => {
   const { translations, setAppLanguage, appLanguage } = useLocalization();
   const navigation = useNavigation<RootNavigationProp>();
   const toast = useToast();
+  const styles = useStyles();
   const { mutate: login, isPending } = useLogin({
     onSuccess: data => {
       console.log(data);
@@ -24,15 +23,7 @@ export const HomeScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Text>Home</Text>
-      <Text style={{ fontFamily: Typography.fontFamilies.regular }}>
-        Font normal
-      </Text>
-      <Text style={{ fontFamily: Typography.fontFamilies.semibold }}>
-        Font semibold
-      </Text>
-      <Image source={Images.logo} style={styles.logo} />
-      <FacebookIcon width={100} height={100} />
+      <Text style={styles.text}>HOME</Text>
       <Button
         title="Show Notification"
         onPress={() => {
@@ -75,14 +66,14 @@ export const HomeScreen = () => {
   );
 };
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles(theme => ({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: theme.colors.background,
   },
-  logo: {
-    width: 100,
-    height: 100,
-  },
-});
+  text: {
+    color: theme.colors.text,
+  }
+}));
