@@ -1,6 +1,17 @@
 {
   "extends": "@react-native/typescript-config",
   "compilerOptions": {
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowJs": true,
+    "strict": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "jsx": "react-native",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "incremental": true,
     "baseUrl": "./",
     "paths": {
       "@components/*": ["src/components/*"],
